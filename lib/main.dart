@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sales_app/constants.dart';
+import 'package:sales_app/screens/details/details_screen.dart';
 import 'package:sales_app/screens/home/home_screen.dart';
 
 void main() {
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         // colorScheme: ColorScheme.fromSeed(seedColor: kPrimaryColor),
         textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
       ),
-      home: HomeScreen(),
+      home: DetailsScreen(),
     );
   }
 }

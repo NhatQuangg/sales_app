@@ -5,7 +5,7 @@ class Product {
   int id;
   String title;
   String image;
-  int price;
+  double price;
   String description;
   Rating rating;
 
@@ -23,7 +23,7 @@ class Product {
       id: json['id'] as int,
       title: json['title'] as String,
       image: json['image'] as String,
-      price: json['price'] as int,
+      price: json['price'] as double,
       description: json['description'] as String,
       rating: Rating.fromJson(json['rating'] as Map<String, dynamic>),
     );

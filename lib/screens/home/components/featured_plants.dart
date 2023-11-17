@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sales_app/constants.dart';
+import 'package:sales_app/model/product.dart';
 
 class FeaturedPlants extends StatelessWidget {
   const FeaturedPlants({
@@ -8,55 +9,60 @@ class FeaturedPlants extends StatelessWidget {
   });
 
   @override
+
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: <Widget>[
-          FeaturePlantCard(
-            image: "assets/images/bottom_img_1.png",
-            press: () {},
-          ),
-          FeaturePlantCard(
-            image: "assets/images/bottom_img_2.png",
-            press: () {},
-          ),
-        ],
-      ),
+    return FutureBuilder<List<Product>>(
+      future: Product.fetData(),
+      builder: (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
+        if (snapshot.hasData) {
+          var data = snapshot.data!;
+          return FeaturePlantCard(lsProduct: data);
+        }
+        else {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
+
 }
 
 class FeaturePlantCard extends StatelessWidget {
-  const FeaturePlantCard({
+  FeaturePlantCard({
     super.key,
-    required this.image,
-    required this.press,
+    required this.lsProduct,
   });
 
-  final String image;
-  final Function press;
+  List<Product> lsProduct;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return GestureDetector(
-      child: Container(
-        margin: EdgeInsets.only(
-            left: kDefaultPadding,
-            top: kDefaultPadding / 2,
-            bottom: kDefaultPadding / 2
-        ),
-        width: size.width * 0.8,
-        height: 185,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-                fit: BoxFit.cover,
-                image: AssetImage(image)
-            )
-        ),
-      ),
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      itemCount: 2,
+      itemBuilder: (BuildContext context, int index) {
+        return GestureDetector(
+          child: Container(
+            margin: EdgeInsets.only(
+                left: kDefaultPadding,
+                top: kDefaultPadding / 2,
+                bottom: kDefaultPadding / 2
+            ),
+            width: size.width * 0.8,
+            height: 185,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: NetworkImage(lsProduct[index].image),
+                )
+            ),
+          ),
+        );
+      },
     );
   }
 }

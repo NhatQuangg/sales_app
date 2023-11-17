@@ -4,7 +4,6 @@ import 'package:sales_app/constants.dart';
 import 'package:sales_app/screens/home/components/featured_plants.dart';
 import 'package:sales_app/screens/home/components/header_with_searchbox.dart';
 import 'package:sales_app/screens/home/components/recomend_plants.dart';
-import 'package:sales_app/screens/home/components/recomend_plantss_2.dart';
 import 'package:sales_app/screens/home/components/title_with_more_btn.dart';
 
 class Body extends StatelessWidget {
@@ -18,15 +17,19 @@ class Body extends StatelessWidget {
         children: <Widget>[
           HeaderWithSearchBox(size: size),
           TitleWithMoreBtn(title: "Recomended", press: () {}),
-          // Container(
-          //   color: Colors.yellow,
-          //   height: 290,
-          //   child: RecomendsPlantss(),
-          // ),
-          RecomendsPlantss(),
-          // TitleWithMoreBtn(title: "Featured Plants", press: () {}),
+          Container(
+            // color: Colors.yellow,
+            height: 290,
+            child: RecomendsPlants(),
+          ),
+          // RecomendsPlantss(),
+          TitleWithMoreBtn(title: "Featured Plants", press: () {}),
+          Container(
+            height: 290,
+            child: FeaturedPlants(),
+          ),
           // FeaturedPlants(),
-          // SizedBox(height: kDefaultPadding,)
+          SizedBox(height: kDefaultPadding,)
         ],
       ),
     );

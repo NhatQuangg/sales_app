@@ -37,7 +37,24 @@ class Body extends StatelessWidget {
               ),
             ),
           ],
-        )
+        ),
+        SizedBox(height: kDefaultPadding,),
+        Row(
+          children: <Widget>[
+            SizedBox(
+              width: size.width / 2,
+              height: 84,
+              child: TextButton(
+                onPressed: () {},
+
+                child: Text(
+                  'Buy Now',
+
+                ),
+              )
+            )
+          ],
+        ),
       ],
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sales_app/constants.dart';
-import 'package:sales_app/screens/details/components/details_description.dart';
-import 'package:sales_app/screens/details/components/details_first.dart';
+import 'package:sales_app/screens/product_details/components/details_description.dart';
+import 'package:sales_app/screens/product_details/components/details_first.dart';
 
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key});

@@ -2,8 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sales_app/constants.dart';
 import 'package:sales_app/model/product.dart';
-import 'package:sales_app/screens/details/components/body.dart';
-import 'package:sales_app/screens/details/details_screen.dart';
+import 'package:sales_app/screens/product_details/details_screen.dart';
 
 class RecomendsPlants extends StatelessWidget {
   const RecomendsPlants({

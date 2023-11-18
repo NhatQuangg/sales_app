@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sales_app/constants.dart';
-import 'package:sales_app/screens/details/details_screen.dart';
 import 'package:sales_app/screens/home/home_screen.dart';
+import 'package:sales_app/screens/product_details/details_screen.dart';
 
 void main() {
   runApp(MyApp());
